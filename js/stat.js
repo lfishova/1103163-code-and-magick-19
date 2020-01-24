@@ -32,7 +32,7 @@ var getColorBar = function (player) {
     color = 'hsl(255, ' + saturation + '%, 50%)';
   }
   return color;
-}
+};
 window.renderStatistics = function (ctx, players, times) {
   renderCloud(ctx, CLOUD_X + SHADOW_GAP, CLOUD_Y + SHADOW_GAP, SHADOW_COLOR);
   renderCloud(ctx, CLOUD_X, CLOUD_Y, CLOUD_COLOR);
