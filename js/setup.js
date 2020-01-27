@@ -1,11 +1,11 @@
 'use strict';
 
+var COUNT_WIZARDS = 4;
 var names = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
 var surnames = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
 var colorCoats = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var colorEyes = ['black', 'red', 'blue', 'yellow', 'green'];
 var randomValue = Math.floor(Math.random() * 2);
-var COUNT_WIZARDS = 4;
 
 var getRandomOrder = function () {
   return randomValue ? getRandomValue(names) + ' ' + getRandomValue(surnames) : getRandomValue(surnames) + ' ' + getRandomValue(names);
@@ -13,12 +13,12 @@ var getRandomOrder = function () {
 var getRandomValue = function (arr) {
   return arr[Math.floor(Math.random() * arr.length)];
 };
-var getHeroArray = function (count) {
-  var heros = [];
+var getHeroes = function (count) {
+  var heroes = [];
   for (var i = 0; i < count; i++) {
-    heros[i] = getPerson(names, surnames, colorCoats, colorEyes);
+    heroes[i] = getPerson(names, surnames, colorCoats, colorEyes);
   }
-  return heros;
+  return heroes;
 };
 var getPerson = function (arrNames, arrSurnames, arrColorCoats, arrColorEyes) {
   var person = {
@@ -43,7 +43,7 @@ var getWizard = function (wizard) {
 };
 var renderWizards = function () {
   var similarListElement = getSimilarListElement();
-  var wizards = getHeroArray(COUNT_WIZARDS);
+  var wizards = getHeroes(COUNT_WIZARDS);
   var fragment = document.createDocumentFragment();
   for (var i = 0; i < wizards.length; i++) {
     fragment.appendChild(getWizard(wizards[i]));
