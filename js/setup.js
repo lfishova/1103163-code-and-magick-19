@@ -64,6 +64,7 @@ var renderWizards = function () {
 var showSetup = function () {
   setup.classList.remove('hidden');
   setupUserName.focus();
+  document.addEventListener('keydown', onPopupEscPress);
 };
 var showSetupSimilar = function () {
   document.querySelector('.setup-similar').classList.remove('hidden');
