@@ -1,10 +1,6 @@
 'use strict';
 
 (function () {
-  var START_SETUP_COORDS = {
-    X: '674.5px',
-    Y: '80px'
-  };
   var ESC_KEY = 'Escape';
   var ENTER_KEY = 'Enter';
   var setupOpen = document.querySelector('.setup-open');
@@ -20,8 +16,8 @@
   };
   var openPopup = function () {
     setup.classList.remove('hidden');
-    setup.style.left = START_SETUP_COORDS.X;
-    setup.style.top = START_SETUP_COORDS.Y;
+    setup.style.top = (window.innerHeight - setup.offsetHeight) / 2 + 'px';
+    setup.style.left = window.innerWidth / 2 + 'px';
     document.addEventListener('keydown', onPopupEscPress);
   };
   var closePopup = function () {
@@ -48,8 +44,18 @@
       closePopup();
     });
   };
+  var showSetup = function () {
+    setup.classList.remove('hidden');
+    setupUserName.focus();
+    document.addEventListener('keydown', onPopupEscPress);
+  };
+  var showSetupSimilar = function () {
+    document.querySelector('.setup-similar').classList.remove('hidden');
+  };
   showModal();
   closeModal();
+  showSetup();
+  showSetupSimilar();
   window.dialog = {
     setup: setup,
     setupUserName: setupUserName,

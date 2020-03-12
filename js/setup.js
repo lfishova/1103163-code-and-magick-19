@@ -57,14 +57,16 @@
     }
     similarListElement.appendChild(fragment);
   };
-  var showSetup = function () {
-    window.dialog.setup.classList.remove('hidden');
-    window.dialog.setupUserName.focus();
-    document.addEventListener('keydown', window.dialog.onPopupEscPress);
-  };
-  var showSetupSimilar = function () {
-    document.querySelector('.setup-similar').classList.remove('hidden');
-  };
+  // var showSetup = function () {
+  //   window.dialog.setup.classList.remove('hidden');
+  //   // window.dialog.setup.style.top = (window.innerHeight - window.dialog.setup.getBoundingClientRect().height) / 2 + 'px';
+  //   // window.dialog.setup.style.left = (window.innerWidth - window.dialog.setup.getBoundingClientRect().width) / 2 + 'px';
+  //   window.dialog.setupUserName.focus();
+  //   document.addEventListener('keydown', window.dialog.onPopupEscPress);
+  // };
+  // var showSetupSimilar = function () {
+  //   document.querySelector('.setup-similar').classList.remove('hidden');
+  // };
   var validInputName = function () {
     window.dialog.setupUserName.addEventListener('invalid', function () {
       if (window.dialog.setupUserName.validity.tooShort) {
@@ -104,12 +106,19 @@
   var getSliceStr = function (str) {
     return str.slice(str.indexOf('-') + 1);
   };
+  // var form = document.querySelector('.setup-wizard-form');
+  // form.addEventListener('submit', function (evt) {
+  //   window.upload(new FormData(form), function (response) {
+  //     document.classList.add('hidden');
+  //   });
+  //   evt.preventDefault();
+  // });
 
   validInputName();
   changeWizardCoat();
   changeWizardEyes();
   changeWizardFireball();
-  showSetup();
+  // showSetup();
   renderWizards();
-  showSetupSimilar();
+  // showSetupSimilar();
 })();
