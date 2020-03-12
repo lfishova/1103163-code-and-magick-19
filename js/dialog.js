@@ -1,6 +1,10 @@
 'use strict';
 
 (function () {
+  var START_SETUP_COORDS = {
+    X: '674.5px',
+    Y: '80px'
+  };
   var ESC_KEY = 'Escape';
   var ENTER_KEY = 'Enter';
   var setupOpen = document.querySelector('.setup-open');
@@ -16,6 +20,8 @@
   };
   var openPopup = function () {
     setup.classList.remove('hidden');
+    setup.style.left = START_SETUP_COORDS.X;
+    setup.style.top = START_SETUP_COORDS.Y;
     document.addEventListener('keydown', onPopupEscPress);
   };
   var closePopup = function () {
